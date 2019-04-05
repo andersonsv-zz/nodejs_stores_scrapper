@@ -1,4 +1,5 @@
 var store = require('app-store-scraper');
+const createCsvWriter = require('csv-writer').createArrayCsvWriter;
 
 console.log("Recover info for AppStore");
 
@@ -14,6 +15,7 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
 
     console.log(`##################### Reviews #####################`);
     
+    const records = [];
 
     for(var i = 1; i < 10 ;i++){
         store.reviews({
@@ -25,16 +27,24 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
           .then((dataReview) => {
             
             console.log("Data length " + dataReview.length);
-            
+
             dataReview.forEach(function(review) {
-                console.log("----------------------------------------------------");
-                console.log(review.score);
-                console.log(review.title);
-                console.log(review.text);
-              });
-    
-          });
+                var reviewModel = [review.score, review.title, review.text];
+                records.push(reviewModel);
+            });
+
+            const csvWriter = createCsvWriter({
+                header: ['Nota', 'Título', 'Comentário'],
+                path: 'file.csv'
+            });
+
+            csvWriter.writeRecords(records)       // returns a promise
+            .then(() => {
+                console.log('...Done');
+            }); 
+        });
     }
+
     console.log("####################################################");
 
   }).catch((error) => {
