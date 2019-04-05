@@ -25,9 +25,6 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
             country: 'br'
           })
           .then((dataReview) => {
-            
-            console.log("Data length " + dataReview.length);
-
             dataReview.forEach(function(review) {
                 var reviewModel = [review.score, review.title, review.text];
                 records.push(reviewModel);
