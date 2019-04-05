@@ -9,6 +9,7 @@
   "author": "Anderson Simões Vieira",
   "license": "ISC",
   "dependencies": {
-    "app-store-scraper": "^0.16.0"
+    "app-store-scraper": "^0.16.0",
+    "csv-writer": "^1.2.0"
   }
 }
