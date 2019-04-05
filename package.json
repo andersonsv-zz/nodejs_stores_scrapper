@@ -1,0 +1,11 @@
+{
+  "name": "br.com.andersonsv",
+  "version": "0.0.1",
+  "description": "Scrapper de reviews de aplicativos na loja (Android / IOS)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anderson Simões Vieira",
+  "license": "ISC"
+}
