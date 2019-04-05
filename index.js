@@ -1,7 +1,11 @@
 var store = require('app-store-scraper');
 
 console.log("Recover info for AppStore");
-store.app({id: 553834731, country: 'br'}).then((data) => {
+
+var appleStoreId = 553834731;
+
+
+store.app({id: appleStoreId, country: 'br'}).then((data) => {
     var id = data.id;
     var appId = data.appId;
     console.log(`##################### App Info #####################`);
