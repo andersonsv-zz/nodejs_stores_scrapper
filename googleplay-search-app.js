@@ -1,7 +1,7 @@
 var gplay = require('google-play-scraper');
 
 gplay.search({
-    term: "candy crush",
+    term: "Mundo Bita",
     country: "br",
     lang : "pt",
     num: 3,

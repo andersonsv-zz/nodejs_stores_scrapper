@@ -12,9 +12,8 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
     console.log(`-> AppId: ${data.appId}`);
     console.log(`-> Id: ${data.id}`);
     console.log("####################################################");
+    console.log(`##################### Recover Reviews #####################`);
 
-    console.log(`##################### Reviews #####################`);
-    
     const records = [];
 
     for(var i = 1; i < 10 ;i++){
@@ -35,14 +34,12 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
                 path: 'appstore.csv'
             });
 
-            csvWriter.writeRecords(records)       // returns a promise
+            csvWriter.writeRecords(records)
             .then(() => {
                 console.log('...Done');
             }); 
         });
     }
-
-    console.log("####################################################");
 
   }).catch((error) => {
     console.debug('Failed');
