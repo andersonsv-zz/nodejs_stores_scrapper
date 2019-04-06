@@ -32,7 +32,7 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
 
             const csvWriter = createCsvWriter({
                 header: ['Nota', 'Título', 'Comentário'],
-                path: 'file.csv'
+                path: 'appstore.csv'
             });
 
             csvWriter.writeRecords(records)       // returns a promise
