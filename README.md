@@ -2,7 +2,8 @@
 Recuperar dados de reviews das lojas de aplicativos. 
   - AppStore
   - Google Play
-[![N|NodeJs](https://www.shareicon.net/data/256x256/2015/10/06/112727_development_512x512.png)](https://nodejs.org/)
+
+[logo]: https://www.shareicon.net/data/256x256/2015/10/06/112727_development_512x512.png (https://nodejs.org/)
 
 # Bibliotecas
 * [Google Play] - https://github.com/facundoolano/google-play-scraper
