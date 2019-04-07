@@ -1,18 +1,13 @@
 var store = require('app-store-scraper');
 const createCsvWriter = require('csv-writer').createArrayCsvWriter;
-
-console.log("Recover info for AppStore");
+const Logger = require('./logger');
 
 var appleStoreId = 553834731;
 
 store.app({id: appleStoreId, country: 'br'}).then((data) => {
-    console.log(`##################### App Info #####################`);
-    console.log(`-> Title: ${data.title}`);
-    console.log(`-> Score: ${data.score}`);
-    console.log(`-> AppId: ${data.appId}`);
-    console.log(`-> Id: ${data.id}`);
-    console.log("####################################################");
-    console.log(`##################### Recover Reviews #####################`);
+
+    let logger = new Logger('App Store', data.title, data.score, data.appId, data.id);
+    logger.log();
 
     const records = [];
 

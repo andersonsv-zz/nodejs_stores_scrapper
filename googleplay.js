@@ -1,18 +1,13 @@
 var gplay = require('google-play-scraper');
 const createCsvWriter = require('csv-writer').createArrayCsvWriter;
-
-console.log("Recover info for Google Play");
+const Logger = require('./logger');
 
 var googlePlayAppId = 'com.mrplot.mundobitaandanativo.app';
 
 gplay.app({appId: googlePlayAppId , lang : "pt", country: "br"}).then((data) => {
-    console.log(`##################### App Info #####################`);
-    console.log(`-> Title: ${data.title}`);
-    console.log(`-> Score: ${data.scoreText}`);
-    console.log(`-> AppId: ${data.appId}`);
 
-    console.log("####################################################");
-    console.log(`##################### Recover Reviews #####################`);
+    let logger = new Logger('Google Play', data.title, data.scoreText, googlePlayAppId, data.appId);
+    logger.log();
 
     const records = [];
 
