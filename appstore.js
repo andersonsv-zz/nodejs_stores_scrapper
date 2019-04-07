@@ -1,6 +1,6 @@
 var store = require('app-store-scraper')
-const createCsvWriter = require('csv-writer').createArrayCsvWriter
 const Logger = require('./logger')
+const Csv = require('./csv')
 
 var appleStoreId = 553834731
 
@@ -24,16 +24,9 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
                 var reviewModel = [review.score, review.title, review.text]
                 records.push(reviewModel)
             })
-
-            const csvWriter = createCsvWriter({
-                header: ['Nota', 'Título', 'Comentário'],
-                path: 'appstore.csv'
-            })
-
-            csvWriter.writeRecords(records)
-            .then(() => {
-                console.log('...Done')
-            })
+            let csv = new Csv('csv/applestore.csv', records)
+            csv.insertLines();
+        
         })
     }
 
