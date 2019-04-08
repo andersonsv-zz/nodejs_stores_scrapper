@@ -12,8 +12,7 @@ if(appleStoreId == undefined){
 
 store.app({id: appleStoreId, country: 'br'}).then((data) => {
 
-    let logger = new Logger('App Store', data.title, data.score, data.appId, data.id)
-    logger.log()
+    new Logger('App Store', data.title, data.score, data.appId, data.id).log()
 
     const records = []
     
@@ -33,6 +32,8 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
             let csv = new Csv('csv/applestore.csv', records)
             csv.insertLines();
         
+        }).catch((error) => {
+            console.debug('Failed')
         })
     }
 

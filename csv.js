@@ -14,7 +14,8 @@ class Csv{
     
         csvWriter.writeRecords(this.records)
         .then(() => {
-            console.log('...Done')
+            let recordsLenght = this.records.lenght
+            console.log(`...Done insert ${recordsLenght}`)
         })
     }
 }

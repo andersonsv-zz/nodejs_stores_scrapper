@@ -9,14 +9,15 @@ class Logger {
   }
 
   log() {
-      console.log(`######## Recover info for ${this.store} ########`)
+      console.log(`########### Recover info for ${this.store} ###########`)
       console.log(`-> App Name: ${this.appName}`)
-      console.log(`-> Score: ${this.totalScore}`)
+      console.log(`-> Score:    ${this.totalScore}`)
 
       if(this.packageApp != ''){
-          console.log(`-> AppId: ${this.packageApp}`)
+        console.log(`-> AppId:    ${this.packageApp}`)
       }
-      console.log(`-> Id: ${this.id}`)
+      console.log(`-> Id:       ${this.id}`)
+      console.log(`===============================================`)
   }
 }
 module.exports = Logger;

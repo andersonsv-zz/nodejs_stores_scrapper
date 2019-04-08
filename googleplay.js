@@ -4,10 +4,13 @@ const Csv = require('./csv')
 
 var googlePlayAppId = 'com.mrplot.mundobitaandanativo.app'
 
-gplay.app({appId: googlePlayAppId , lang : "pt", country: "br"}).then((data) => {
+gplay.app(
+    {appId: googlePlayAppId , 
+     lang : "pt", 
+     country: "br"}
+).then((data) => {
 
-    let logger = new Logger('Google Play', data.title, data.scoreText, googlePlayAppId, data.appId)
-    logger.log()
+    new Logger('Google Play', data.title, data.scoreText, googlePlayAppId, data.appId).log()
 
     const records = []
 
@@ -29,6 +32,10 @@ gplay.app({appId: googlePlayAppId , lang : "pt", country: "br"}).then((data) => 
 
             let csv = new Csv('csv/googleplay.csv', records)
             csv.insertLines();
+        }).catch((error) => {
+            console.debug('Failed - get review data')
         })
-    }
+    } 
+}).catch((error) => {
+    console.debug('Failed - get app data')
 })

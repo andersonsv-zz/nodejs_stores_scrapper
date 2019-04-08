@@ -15,21 +15,24 @@ $ npm install
 ```
 
 # Execução - Google Play
-1. Procurar id e **nome** do **pacote**. No diretório do projeto executar:
+**1.** Procurar id e **nome** do **pacote**. No diretório do projeto executar:
 ```sh
-$ node googleplay-search-app --term='Mundo Bita' --results=10
+$ node googleplay-search-app --term='Nome do App' --results=10
 ```
 **Obs:** o parâmetro --term é obrigatório.
-2. Copiar o resultado de appId
-3. Executar o comando 
+
+**2.** Copiar o resultado de appId
+
+**3.** Executar o comando 
+
 ```sh
 $ node googleplay --appId=[appId recuperado da consulta anterior]
 ```
-4. O resultado da consulta de reviews do projeto serão gerados no diretório csv/googleplay.csv
+**4.** O resultado da consulta de reviews do projeto serão gerados no diretório **csv/googleplay.csv**
 
 # Execução - App Store
-1. Recuperar o id na url da App Store e utilizar como parâmetro
+**1.** Recuperar o id na url da App Store e utilizar como parâmetro
 ```sh
 $ node appstore --id=553834731
 ```
-2. O resultado da consulta de reviews do projeto serão gerados no diretório csv/applestore.csv
+**2.** O resultado da consulta de reviews do projeto serão gerados no diretório **csv/applestore.csv**
