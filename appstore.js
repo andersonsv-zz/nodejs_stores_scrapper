@@ -1,8 +1,14 @@
 var store = require('app-store-scraper')
 const Logger = require('./logger')
 const Csv = require('./csv')
+const args = require('minimist')(process.argv.slice(2))
 
-var appleStoreId = 553834731
+let appleStoreId = args['id']
+
+if(appleStoreId == undefined){
+  console.log("É obrigatório realizar a chamada com o argumento --id (Id App Store). A chamada não foi completada")
+  return;
+}
 
 store.app({id: appleStoreId, country: 'br'}).then((data) => {
 
