@@ -1,8 +1,15 @@
 var gplay = require('google-play-scraper')
 const Logger = require('./logger')
 const Csv = require('./csv')
+const args = require('minimist')(process.argv.slice(2))
 
-var googlePlayAppId = 'com.mrplot.mundobitaandanativo.app'
+let googlePlayAppId = args['appId']
+
+if(googlePlayAppId == undefined){
+  console.log("É obrigatório realizar a chamada com o argumento --id (AppId-package Google Play). A chamada não foi completada")
+  return;
+}
+
 
 gplay.app(
     {appId: googlePlayAppId , 

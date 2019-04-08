@@ -10,10 +10,12 @@ if(appleStoreId == undefined){
   return;
 }
 
-store.app({id: appleStoreId, country: 'br'}).then((data) => {
+store.app({
+    id: appleStoreId, 
+    country: 'br'
+}).then((data) => {
 
     new Logger('App Store', data.title, data.score, data.appId, data.id).log()
-
     const records = []
     
     //limit 10 pages
@@ -23,8 +25,7 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
             sort: store.sort.RECENT,
             page: i,
             country: 'br'
-          })
-          .then((dataReview) => {
+          }).then((dataReview) => {
             dataReview.forEach(function(review) {
                 var reviewModel = [review.score, review.title, review.text]
                 records.push(reviewModel)
@@ -33,10 +34,10 @@ store.app({id: appleStoreId, country: 'br'}).then((data) => {
             csv.insertLines();
         
         }).catch((error) => {
-            console.debug('Failed')
+            console.debug('Failed - get review data')
         })
     }
 
   }).catch((error) => {
-    console.debug('Failed')
-  })
+    console.debug('Failed - get app data')
+})
