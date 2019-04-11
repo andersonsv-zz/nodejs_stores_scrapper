@@ -26,10 +26,11 @@ gplay.app(
     let pages = Math.floor(reviewsCount / itemsPerPage)
 
     for(var i = 1; i < pages ;i++){
+        console.log(i)
         gplay.reviews({
             appId: googlePlayAppId,
             sort: gplay.sort.NEWEST,
-            pages : i,
+            page : i,
             lang: "pt-br"
         }).then((data) => {
             data.forEach(function(review) {
